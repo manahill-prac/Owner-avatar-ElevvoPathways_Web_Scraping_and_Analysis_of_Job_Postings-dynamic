@@ -1,49 +1,73 @@
-📊 Data Science Survey Analysis (2017–2021)
+# LinkedIn Dynamic Job Scraper & Analyzer
 
-This project analyzes the Kaggle Data Science & Machine Learning Survey (2017–2021) to explore key trends in tools, salaries, education, and demographics among data professionals.
-It includes data cleaning, exploratory data analysis (EDA), and interactive visualizations, all built in Python.
+A Python Selenium-based dynamic scraper to extract job listings from LinkedIn, analyze trends, visualize data, and export results.
 
+---
 
-📂 Dataset
+## Features
 
-Source: Kaggle "Data Science and Machine Learning Survey" (2017–2021)
+- Scrape LinkedIn jobs dynamically (title, company, location, posted date, job URL)
+- Extract in-demand skills from job titles
+- Human-like delays and scrolling to mimic real browsing
+- Data analysis:
+  - Top hiring companies
+  - Top job locations
+  - Most demanded skills
+  - Jobs scraped per page
+- Visualizations using Matplotlib & Seaborn
+- Export:
+  - CSV of scraped jobs
+  - TXT summary report
 
-Link: Kaggle Dataset
+---
 
+## Requirements
 
-📑 Covered Analysis
+Python 3.9+ recommended.
 
-✔ Data Cleaning & Preprocessing
-✔ Exploratory Data Analysis (EDA)
-✔ Demographics of Data Scientists (age, education, geography)
-✔ Tools & Technologies trends (Python, R, SQL, Cloud, ML frameworks)
-✔ Salary Distribution & Career Path insights
-✔ Visualizations (bar charts, line plots, heatmaps, summary dashboards)
+Install dependencies using `requirements.txt`:
 
-🛠 Tools & Libraries
-
-Python
-
-Pandas & NumPy
-
-Matplotlib & Seaborn
-
-Google Colab (execution environment)
-
-▶ How to Run
-
-Clone this repo
-
-git clone https://github.com/your-username/DataScience_Survey_2017_2021.git
-cd DataScience_Survey_2017_2021
-
-
-Place the dataset (survey_2017_2021.csv) inside data/.
-
-Install requirements:
-
+```bash
 pip install -r requirements.txt
+````
+
+**For Google Colab:**
+
+```bash
+!apt-get update -qq
+!apt-get install -y google-chrome-stable -qq
+!pip install selenium pandas matplotlib seaborn chromedriver-autoinstaller -q
+```
+
+## Usage
+
+```python
+from linkedin_scraper import LinkedInJobScraper
+
+# Initialize scraper
+scraper = LinkedInJobScraper(headless=True)
+
+# Scrape jobs (example: Data Entry in Pakistan)
+jobs = scraper.scrape_linkedin_jobs(
+    search_term="data entry",
+    location="Pakistan",
+    max_pages=2
+)
+
+# Analyze data
+df = scraper.analyze_scraped_data()
+
+# Visualize results
+scraper.create_visualizations(df)
+
+# Save results to CSV and TXT report
+scraper.save_results('linkedin_data_entry')
+```
+
+---
 
 
-Run the notebook in Jupyter or open directly in Colab:
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/YOUR_FILE_ID_HERE)
+
+
 
