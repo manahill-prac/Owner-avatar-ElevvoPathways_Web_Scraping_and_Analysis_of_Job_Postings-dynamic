@@ -1,0 +1,16 @@
+LINKEDIN JOB SCRAPING REPORT
+==================================================
+
+Scraping completed: 2025-08-20 17:45:36
+Total jobs scraped: 2
+
+
+Top 10 Companies:
+company
+ACCA Careers      1
+ibex. Pakistan    1
+
+Top 10 Locations:
+location
+Karāchi, Sindh, Pakistan          1
+Islamabad, Islāmābād, Pakistan    1
